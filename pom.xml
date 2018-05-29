@@ -1,0 +1,125 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.jetty.demo</groupId>
+  <artifactId>mvc-jetty</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>mvc-jetty</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <org.springframework.version>4.3.9.RELEASE</org.springframework.version>
+     <!-- <jettyVersion>9.4.6.v20170531</jettyVersion>  -->
+     <!-- <jettyVersion>7.2.0.v20101020</jettyVersion>   -->
+      <jetty.version>9.2.10.v20150310</jetty.version>
+      <version>4.3.9.RELEASE</version>
+  </properties>
+
+  <dependencies>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	    <version>${org.springframework.version}</version>
+	</dependency>
+
+    <dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-core</artifactId>
+		<version>2.8.3</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+		<version>2.8.3</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-annotations</artifactId>
+		<version>2.8.3</version>
+	</dependency>
+  
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+<!--     <dependency>  
+      <groupId>org.eclipse.jetty</groupId>  
+      <artifactId>jetty-server</artifactId>  
+      <version>${jettyVersion}</version>  
+    </dependency>  
+    <dependency>  
+      <groupId>org.eclipse.jetty</groupId>  
+      <artifactId>jetty-webapp</artifactId>  
+      <version>${jettyVersion}</version>  
+    </dependency>  
+    <dependency>  
+      <groupId>org.eclipse.jetty</groupId>  
+      <artifactId>jetty-util</artifactId>  
+      <version>${jettyVersion}</version>  
+    </dependency>  
+    <dependency>  
+      <groupId>org.eclipse.jetty</groupId>  
+      <artifactId>jetty-io</artifactId>  
+      <version>${jettyVersion}</version>  
+    </dependency>  
+    
+    <dependency>  
+      <groupId>org.mortbay.jetty</groupId>  
+      <artifactId>jsp-2.1-glassfish</artifactId>  
+      <version>2.1.v20100127</version>  
+    </dependency>   -->
+    
+        <!-- jetty -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>${jetty.version}</version>
+            <!-- <scope>provided</scope> -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-jsp</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+    
+  </dependencies>
+  
+  <build>
+  	<plugins>
+		<plugin>
+		
+		    <groupId>org.mortbay.jetty</groupId>
+		    <artifactId>jetty-maven-plugin</artifactId>
+		    <version>7.4.0.v20110414</version>
+		    <configuration>
+		         <scanIntervalSeconds>10</scanIntervalSeconds>
+		         <webAppConfig>
+		              <contextPath>/springmvc</contextPath>
+		              <defaultsDescriptor>src/main/resources/webdefault.xml</defaultsDescriptor>
+		         </webAppConfig>
+		         <jettyConfig>
+		         	
+		         </jettyConfig>
+		    </configuration>
+		</plugin>
+		
+  	</plugins>
+ </build>
+  
+  
+</project>
